@@ -1,0 +1,179 @@
+$color-white: #FFFFFF;
+$color-black: #333333;
+$color-blue: #3b3be8;
+$color-red: #da3f3f;
+$color-grey: #f7f7f7;
+$color-orange: #ff551f;
+$color-dark-grey: #666666;
+$color-line-dark-grey: #c2b9b9;
+$color-line-grey: #f2f2f2;
+$color-black-opacity: rgba(0, 0, 0, .5);
+
+body {
+    width: 1366px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    clear: both;
+    background-color: $color-orange;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p {
+    margin: 0;
+}
+.currencies{
+    &-label {
+        color: $color-white;
+        font-size: 26px;
+        text-align: center;
+    }
+
+    &-content {
+        display: block;
+        position: relative;
+        color: $color-orange;
+        width: 680px;
+        height: auto;
+        min-height: calc( 100vh - 20vh);
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: $color-white;
+        border: 1px solid $color-line-grey;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    &-content__head {
+        font-size: 16px;
+        line-height: 16px;
+        min-height: 16px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    &-content__body {
+        position: relative;
+        border-bottom: 1px solid $color-orange;
+        margin-top: 10px 0;
+        padding-bottom: 5px;
+
+        & .btn-add {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: #ff551f;
+            border: 1px solid #ff551f;
+            font-weight: bold;
+            padding: 6px 9px;
+
+            &:hover {
+                background-color: $color-orange;
+                color: $color-white;
+                border: 1px solid $color-white;
+            }
+        }
+
+        & .form-input {
+            display: block;
+            width: 100%;
+            padding-right: 36px;
+            height: 36px;
+            font-size: 16px;
+            line-height: 20px;
+            border: 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+    }
+
+    &-content__append {
+        position: relative;
+        clear: both;
+
+        &::before {
+            clear: both;
+        }
+
+        & .append-container {
+            display: block;
+            position: relative;
+            margin: 10px 0;
+            margin-bottom: 0;
+            border-bottom: 1px solid $color-line-grey;
+            padding: 10px;
+            border-radius: 4px;
+            clear: both;
+
+            &__top {
+                display: table;
+                width: calc(100% - 37px);
+                float: left;
+                box-sizing: border-box;
+
+                & p {
+                    display: table-cell;
+                    width: 50%;
+                    box-sizing: border-box;
+                    line-height: 36px;
+                }
+            }
+
+            & .btn-remove {
+                display: inline;
+                box-sizing: border-box;
+                color: $color-white;
+                background-color: $color-orange;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-content__term {
+        color: $color-red;
+        font-style: italic;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
+    
+
+.btn {
+    padding: 0 10px;
+    border-radius: 6px;
+    color: #333333;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    line-height: 14px;
+    cursor: pointer;
+    border: 0;
+    clear: both;
+    outline: none;
+
+    &-primary {
+        background-color: $color-blue;
+        color: $color-white;
+    }
+
+    &-secondary {
+        background-color: $color-white;
+        border: 1px solid $color-line-dark-grey;
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+    } 
+}
+.alert-box {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: $color-black-opacity;
+}
+a.disabled {
+    pointer-events: none;
+}

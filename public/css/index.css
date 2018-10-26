@@ -1,0 +1,37 @@
+body {
+    width: 1366px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    clear: both;
+}
+.content__top h1 {
+    font-size: 26px;
+    text-align: center;
+}
+.btn {
+    padding: 0 10px;
+    border-radius: 6px;
+    color: #333333;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-size: 14px;
+    line-height: 14px;
+    cursor: pointer;
+    border: 0;
+    clear: both;
+}
+.btn-primary {
+    background-color: blue;
+    color: #FFFFFF;
+}
+.btn-secondary {
+    background-color: #FFFFFF;
+    border: 1px solid #333333;
+
+}
+a.disabled {
+    pointer-events: none;
+}
+.btn.disabled {
+    cursor: not-allowed;
+}
