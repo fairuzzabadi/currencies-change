@@ -46,13 +46,13 @@ export default class App extends React.Component {
 
     validateAll() {
         if(!this.validateInput()) {
-            this.state.errMessage = "Kamu Sudah Pernah Menambahkan Inputan, Silahkan Periksa Kembali";
+            this.state.errMessage = "You have added current currencies, please check on the table";
             return false;
         } else if(this.input.current.value.toUpperCase() == "") {
-            this.state.errMessage = "Mohon Isi Currencies";
+            this.state.errMessage = "Please fill the form";
             return false;
         } else if(this.input.current.value.toUpperCase() == "USD") {
-            this.state.errMessage = "Mohon Isi Selain USD";
+            this.state.errMessage = "Currencies are transformed based on 1 USD";
             return false;
         }
         return true;
