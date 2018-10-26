@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './component/button';
+import { formatMoney } from './utils/utils'
 import './appsource.scss';
 
 export default class App extends React.Component {
@@ -89,10 +90,12 @@ export default class App extends React.Component {
         let results = this.state.results.map((value, index) => {
             return  <div className="append-container" key={index}>
                         <div className="append-container__top">
-                            <p>{value.name}</p>
-                            <p>{value.number}</p>
+                            <div className="container-table">
+                                <p>1 USD</p>
+                                <p>{ `${value.name} ${formatMoney(value.number)}` }</p>
+                            </div>
                         </div>
-                        <Button className="btn-secondary btn-remove" onClick={this.onReset} label="-" value={index} />
+                        <Button className="btn-remove" onClick={this.onReset} label="-" value={index} />
                     </div>
         });
 

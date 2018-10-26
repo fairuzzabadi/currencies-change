@@ -90,14 +90,17 @@ p {
     &-content__append {
         position: relative;
         clear: both;
+        color: $color-dark-grey;
 
         &::before {
             clear: both;
         }
 
         & .append-container {
-            display: block;
+            display: table;
             position: relative;
+            width: 100%;
+            height: auto;
             margin: 10px 0;
             margin-bottom: 0;
             border-bottom: 1px solid $color-line-grey;
@@ -106,25 +109,38 @@ p {
             clear: both;
 
             &__top {
-                display: table;
+                display: table-cell;
                 width: calc(100% - 37px);
                 float: left;
                 box-sizing: border-box;
 
-                & p {
-                    display: table-cell;
-                    width: 50%;
-                    box-sizing: border-box;
-                    line-height: 36px;
+                & .container-table {
+                    display: table;
+                    width: 100%;
+                    height: auto;
+
+                    & p {
+                        display: table-cell;
+                        width: 50%;
+                        box-sizing: border-box;
+                        line-height: 36px;
+                    }
                 }
             }
 
             & .btn-remove {
-                display: inline;
+                display: table-cell;
                 box-sizing: border-box;
                 color: $color-white;
                 background-color: $color-orange;
                 font-weight: bold;
+                padding: 5px 10px;
+
+                &:hover {
+                    background-color: $color-white;
+                    color: $color-orange;
+                    border: 1px solid $color-orange;
+                }
             }
         }
     }
