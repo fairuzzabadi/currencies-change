@@ -11,8 +11,7 @@ export default class App extends React.Component {
         this.input = React.createRef();
         this.state = {
             results: [],
-            errMessage: '',
-            showErr: false
+            errMessage: ''
         }
     }
 
@@ -20,10 +19,7 @@ export default class App extends React.Component {
         if(this.validateAll()) {
             this.loadApi(this.input.current.value.toUpperCase());
         } else {
-            this.setState({
-                showErr: true
-            })
-            // alert(this.state.errMessage)
+            alert(this.state.errMessage)
         }
     }
 
@@ -103,9 +99,6 @@ export default class App extends React.Component {
         return <div className="currencies">
                     <h1 className="currencies-label">Simple Change Currencies</h1>
                     <div className="currencies-content">
-                        {/* <div className="currencies-content__head">
-                            <p>USD : 1</p>
-                        </div> */}
                         <div className="currencies-content__body">
                             <input className="form-input" type="text" ref={this.input} placeholder="Input Currency e.g: IDR, JPY, etc." onKeyUp={this.onKeyup}></input>
                             <Button className="btn-secondary btn-add" onClick={this.onClick} label="+"/>
@@ -115,29 +108,6 @@ export default class App extends React.Component {
                             { results }
                         </div>
                     </div>
-                    {
-                        this.state.showErr ?
-                        <AlertBox onClick={this.hideBox}><h1>{this.state.errMessage}</h1></AlertBox>
-                        : ''
-                    }
                 </div>;
-    }
-}
-
-class AlertBox extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.onClick = this.onClick.bind(this);
-    }
-
-    onClick(e) {
-
-    }
-
-    render () {
-        return <div className='alert-box' onClick={this.onClick}>
-                    {this.props.children}
-                </div>
     }
 }
