@@ -107,10 +107,11 @@ p {
             padding: 0 10px;
             border-radius: 4px;
             clear: both;
+            box-sizing: border-box;
 
             &__top {
                 display: table-cell;
-                width: calc(100% - 37px);
+                width: 100%;
                 float: left;
                 box-sizing: border-box;
 
@@ -121,20 +122,31 @@ p {
 
                     & p {
                         display: table-cell;
-                        width: 50%;
+                        width: 70%;
                         box-sizing: border-box;
                         line-height: 36px;
+
+                        &:first-child {
+                            width: 30%;
+                        }
                     }
                 }
             }
 
             & .btn-remove {
-                display: table-cell;
-                box-sizing: border-box;
+                display: block;
+                position: absolute;
+                right: 5px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
                 color: $color-white;
                 background-color: $color-orange;
                 font-weight: bold;
-                padding: 5px 10px;
+                padding: 0;
+                width: 24px;
+                height: 24px;
+                box-sizing: border-box;
 
                 &:hover {
                     background-color: $color-white;

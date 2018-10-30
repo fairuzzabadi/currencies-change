@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './component/button';
 import { formatMoney } from './utils/utils'
+import setData from './data/data.json'
 import './appsource.scss';
 
 export default class App extends React.Component {
@@ -65,18 +66,21 @@ export default class App extends React.Component {
             xhr.onload = () => {
                 if(xhr.status === 200) {
                     let results = JSON.parse(xhr.responseText),
-                        test = results.rates,
-                        loop = '';
-                        for(loop in test) {
-                            let coba = {
+                        current = results.rates,
+                        arr = {},
+                        loop = '',
+                        data = [];
+                        for(loop in current) {
+                            arr = {
                                 name: loop,
-                                number: test[loop]
-                            },
-                            data = this.state.results.concat([coba])
-                            this.setState({
-                                results: data
-                            })
+                                number: current[loop],
+                                label: this.setCurrenciesLabel(loop)
+                            };
                         }
+                        data = this.state.results.concat([arr]);
+                        this.setState({
+                            results: data
+                        });
                 } else {
                     // ERROR
                     this.state.errMessage = `Status: ${xhr.status}, Error get data`;
@@ -85,14 +89,23 @@ export default class App extends React.Component {
             }
             xhr.send();
     }
+    
+    setCurrenciesLabel(data) {
+        let label;
+        for(label in setData.countries) {
+            if(data == label) {
+                return setData.countries[label]
+            }
+        }
+    }
 
     render() {
         let results = this.state.results.map((value, index) => {
             return  <div className="append-container" key={index}>
                         <div className="append-container__top">
                             <div className="container-table">
-                                <p>1 USD</p>
-                                <p>{ `${value.name} ${formatMoney(value.number)}` }</p>
+                                <p>{`1 USD ( ${setData.countries.USD} )`}</p>
+                                <p>{ `${formatMoney(value.number)} ${value.name} ( ${value.label} )`}</p>
                             </div>
                         </div>
                         <Button className="btn-remove" onClick={this.onReset} label="-" value={index} />
