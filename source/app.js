@@ -113,7 +113,7 @@ export default class App extends React.Component {
         });
 
         return <div className="currencies">
-                    <h1 className="currencies-label">Simple Change Currencies</h1>
+                    <h1 className="currencies-label">Simple Exchange Rates</h1>
                     <div className="currencies-content">
                         <div className="currencies-content__body">
                             <input className="form-input" type="text" ref={this.input} placeholder="Input Currency e.g: IDR, JPY, etc." onKeyUp={this.onKeyup}></input>
